@@ -1,17 +1,19 @@
-// Import the functions you need from the SDKs you need
+// Importa lo necesario
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth } from "firebase/auth"; // 👈 Necesario para autenticación
 
-// Your web app's Firebase configuration
+// Tu configuración de Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyDem0zujqv3ypn68xmSU8TjzBAisvHoELQ",
   authDomain: "auth-app-react-f402e.firebaseapp.com",
   projectId: "auth-app-react-f402e",
-  storageBucket: "auth-app-react-f402e.firebasestorage.app",
+  storageBucket: "auth-app-react-f402e.appspot.com", // 🔧 corregido dominio: era `.app`, debe ser `.appspot.com`
   messagingSenderId: "459514724226",
   appId: "1:459514724226:web:bcb8da12ec8ebd8581d99b"
 };
 
-// Initialize Firebase
+// Inicializa Firebase
 const app = initializeApp(firebaseConfig);
+
+// Crea instancia de autenticación
+export const auth = getAuth(app); // ✅ Exportamos `auth` para usar en App.js
